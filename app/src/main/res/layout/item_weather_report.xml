@@ -7,72 +7,71 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:cardCornerRadius="20dp"
-        app:strokeColor="@color/gray"
-        app:strokeWidth="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15dp"
-            >
+            android:padding="15dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0.2"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                tools:text="LEMD" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="0.6" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:clickable="false"
-                app:strokeWidth="0.8dp"
-                app:strokeColor="@color/gray"
-                android:focusable="false"
-                app:cardCornerRadius="5dp"
-                >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/itemweatherreport_tv_station"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_gravity="center"
-                    tools:text="VFR" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.2"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:text="LEMD" />
 
-            </com.google.android.material.card.MaterialCardView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.6" />
 
-        </LinearLayout>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:layout_marginEnd="5dp"
+                    app:cardCornerRadius="5dp"
+                    app:strokeColor="@color/gray"
+                    app:strokeWidth="0.8dp">
+
+                    <TextView
+                        android:id="@+id/itemweatherreport_tv_condition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="5dp"
+                        tools:text="VFR" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/itemweatherreport_tv_report"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                tools:text="LEMD 300830Z 36004KT 9999 3500SE BCFG FEW001 03/02 Q1026 NOSIG"
-                />
+                tools:text="LEMD 300830Z 36004KT 9999 3500SE BCFG FEW001 03/02 Q1026 NOSIG" />
 
-    </LinearLayout>
-
+        </LinearLayout>
 
 
     </com.google.android.material.card.MaterialCardView>
