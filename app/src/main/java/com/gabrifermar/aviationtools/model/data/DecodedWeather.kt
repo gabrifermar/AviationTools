@@ -2,6 +2,7 @@ package com.gabrifermar.aviationtools.model.data
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Keep
 data class DecodedWeather(
@@ -25,7 +26,7 @@ data class Data(
     @SerializedName("temperature") var temperature: Temperature,
     @SerializedName("visibility") var visibility: Visibility,
     @SerializedName("wind") var wind: Wind
-)
+) : Serializable
 
 @Keep
 data class Barometer(

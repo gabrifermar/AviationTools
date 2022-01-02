@@ -3,4 +3,7 @@
     <string name="aviationtools">Aviation Tools</string>
     <string name="weather">Weather</string>
     <string name="search">Search</string>
+
+    <!--WeatherDetails-->
+    <string name="temperatureCelsius">%d ºC</string>
 </resources>

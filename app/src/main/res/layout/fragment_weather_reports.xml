@@ -8,6 +8,7 @@
     tools:context=".view.fragments.WeatherReports">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:id="@+id/weatherreports_rv_reports"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -7,10 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gabrifermar.aviationtools.R
 import com.gabrifermar.aviationtools.WeatherReportsAdapter
 import com.gabrifermar.aviationtools.databinding.FragmentWeatherReportsBinding
 import com.gabrifermar.aviationtools.model.api.ApiRequests
+import com.gabrifermar.aviationtools.model.data.Data
+import com.gabrifermar.aviationtools.view.Weather
 import com.gabrifermar.aviationtools.viewmodel.WeatherReportsViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,9 +30,7 @@ class WeatherReports : Fragment() {
 
     private lateinit var viewModel: WeatherReportsViewModel
     private lateinit var adapter: WeatherReportsAdapter
-    private var stations = mutableListOf<String>()
-    private var reports = mutableListOf<String>()
-    private var conditions = mutableListOf<String>()
+    private lateinit var result: List<Data>
     private var _binding: FragmentWeatherReportsBinding? = null
     private val binding get() = _binding!!
 
@@ -44,54 +46,40 @@ class WeatherReports : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[WeatherReportsViewModel::class.java]
 
+        //api
+        viewModel.apiCall()
+
         //recycler
         initRecycler()
 
-        //api
-        apiCall()
+        //listeners
+        startListeners()
+
     }
 
-    private fun apiCall() {
-        CoroutineScope(Dispatchers.IO).launch {
+    private fun startListeners() {
+        viewModel.stationsLiveData.observe(activity as Weather, {
+            adapter.notifyItemRangeInserted(0, it.size)
+        })
 
-            val api = Retrofit.Builder().baseUrl("https://api.checkwx.com/metar/")
-                .addConverterFactory(GsonConverterFactory.create()).build()
-
-            val decodedWeather = api.create(ApiRequests::class.java)
-                .getDecodedMetar("LEMD,LEMG,LEAS,LECO,LEBL,LEVC,LEVD/decoded/?x-api-key=d49660ce845e4f3db1fc469256")
-                .body()
-
-            val result = decodedWeather?.data ?: emptyList()
-
-            requireActivity().runOnUiThread {
-
-
-                result.forEach {
-                    stations.add(it.icao)
-                    reports.add(it.rawReport)
-                    conditions.add(it.flightcategory)
-                    adapter.notifyDataSetChanged()
-                }
-
-            }
-        }
     }
 
     private fun initRecycler() {
         binding.weatherreportsRvReports.layoutManager = LinearLayoutManager(activity)
-        adapter = WeatherReportsAdapter(stations, reports, conditions)
+        adapter =
+            WeatherReportsAdapter(
+                activity as Weather,
+                viewModel.stations,
+                viewModel.reports,
+                viewModel.conditions,
+                viewModel.result
+            )
         binding.weatherreportsRvReports.adapter = adapter
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun sendData(): Bundle {
-        val data = Bundle()
-        data.putString("hola", "hola")
-        return data
     }
 
 }
