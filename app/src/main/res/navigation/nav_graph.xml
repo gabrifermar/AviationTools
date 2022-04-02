@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by gabrifermar on 2/4/22 19:22
+  ~ Copyright Ⓒ 2022. All rights reserved
+  ~ Last modified: 2/4/22 18:45
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/weatherReports"
+    >
+
+    <fragment
+        android:id="@+id/weatherReports"
+        android:name="com.gabrifermar.aviationtools.view.fragments.WeatherReports"
+        android:label="fragment_weather_reports"
+        tools:layout="@layout/fragment_weather_reports" >
+        <action
+            android:id="@+id/action_weatherReports_to_weatherDetails"
+            app:destination="@id/weatherDetails"
+            app:popUpTo="@id/weatherReports"            />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherDetails"
+        android:name="com.gabrifermar.aviationtools.view.fragments.WeatherDetails"
+        android:label="fragment_weather_details"
+        tools:layout="@layout/fragment_weather_details" >
+        <action
+            android:id="@+id/action_weatherDetails_to_weatherReports"
+            app:destination="@id/weatherReports"/>
+    </fragment>
+</navigation>

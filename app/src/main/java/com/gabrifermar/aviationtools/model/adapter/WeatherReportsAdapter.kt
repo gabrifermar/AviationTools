@@ -1,23 +1,24 @@
-package com.gabrifermar.aviationtools
+/*
+ * Created by gabrifermar on 2/4/22 19:22
+ * Copyright Ⓒ 2022. All rights reserved
+ * Last modified: 12/3/22 12:47
+ */
+
+package com.gabrifermar.aviationtools.model.adapter
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.gabrifermar.aviationtools.databinding.ItemWeatherReportBinding
+import com.gabrifermar.aviationtools.R
 import com.gabrifermar.aviationtools.model.data.Data
 import com.gabrifermar.aviationtools.view.Weather
 import com.gabrifermar.aviationtools.view.fragments.WeatherDetails
-import com.gabrifermar.aviationtools.view.fragments.WeatherReports
 
 class WeatherReportsAdapter(
     private val context: Context,
@@ -68,7 +69,7 @@ class WeatherReportsAdapter(
     private fun setFragment(fragment: Fragment) {
         val fragmentManager = (context as Weather).supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.weather_fragment_reports, fragment)
+        fragmentTransaction.replace(R.id.weather_fragment_reports, fragment,"details").addToBackStack("main")
         fragmentTransaction.commit()
     }
 }

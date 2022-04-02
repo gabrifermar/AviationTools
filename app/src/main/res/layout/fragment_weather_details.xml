@@ -1,21 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by gabrifermar on 2/4/22 19:22
+  ~ Copyright Ⓒ 2022. All rights reserved
+  ~ Last modified: 1/2/22 21:49
+  -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/background"
     android:layout_height="wrap_content"
+    android:background="@drawable/background"
     tools:context=".view.fragments.WeatherDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/weatherDetails_constraint_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:background="@drawable/background"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="@color/gray">
 
 
         <LinearLayout
@@ -63,6 +69,58 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherDetails_constraint_header">
 
+        <TextView
+            android:id="@+id/weatherDetails_tv_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Wind" />
+
+        <TextView
+            android:id="@+id/weatherDetails_tv_windDegrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="@id/weatherDetails_tv_wind"
+            app:layout_constraintTop_toBottomOf="@id/weatherDetails_tv_wind"
+            tools:text="Degrees:" />
+
+        <TextView
+            android:id="@+id/weatherDetails_tv_windSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/weatherDetails_tv_windDegrees"
+            app:layout_constraintTop_toBottomOf="@id/weatherDetails_tv_windDegrees"
+            tools:text="Speed:" />
+
+        <ImageView
+            android:id="@+id/weatherDetails_iv_windArrow"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_baseline_arrow_circle_up_24"
+            app:layout_constraintBottom_toBottomOf="@id/weatherDetails_tv_windSpeed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/weatherDetails_tv_wind" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

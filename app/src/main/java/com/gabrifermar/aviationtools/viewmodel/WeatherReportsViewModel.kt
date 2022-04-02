@@ -1,3 +1,9 @@
+/*
+ * Created by gabrifermar on 2/4/22 19:22
+ * Copyright Ⓒ 2022. All rights reserved
+ * Last modified: 2/4/22 18:54
+ */
+
 package com.gabrifermar.aviationtools.viewmodel
 
 import androidx.lifecycle.MutableLiveData
@@ -25,7 +31,7 @@ class WeatherReportsViewModel : ViewModel() {
                 .addConverterFactory(GsonConverterFactory.create()).build()
 
             val decodedWeather = api.create(ApiRequests::class.java)
-                .getDecodedMetar("LEMD,LEMG,LEAS,LECO,LEBL,LEVC,LEVD/decoded/?x-api-key=d49660ce845e4f3db1fc469256")
+                .getDecodedMetar("LEMD,LPPD,LEMG,LEAS,LECO,LEBL,LEVC,LEVD/decoded/?x-api-key=d49660ce845e4f3db1fc469256")
                 .body()
 
             results = decodedWeather?.data ?: emptyList()
@@ -41,5 +47,12 @@ class WeatherReportsViewModel : ViewModel() {
             stationsLiveData.postValue(stations)
 
         }
+    }
+
+    fun clear(){
+        stations.clear()
+        reports.clear()
+        conditions.clear()
+        result.clear()
     }
 }

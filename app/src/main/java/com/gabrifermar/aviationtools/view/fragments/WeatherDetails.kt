@@ -1,3 +1,9 @@
+/*
+ * Created by gabrifermar on 2/4/22 19:22
+ * Copyright Ⓒ 2022. All rights reserved
+ * Last modified: 1/2/22 19:16
+ */
+
 package com.gabrifermar.aviationtools.view.fragments
 
 import androidx.lifecycle.ViewModelProvider
@@ -21,6 +27,7 @@ class WeatherDetails : Fragment() {
     }
 
     private lateinit var viewModel: WeatherDetailsViewModel
+    private lateinit var result: Data
     private var _binding: FragmentWeatherDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -37,7 +44,8 @@ class WeatherDetails : Fragment() {
 
         viewModel = ViewModelProvider(this)[WeatherDetailsViewModel::class.java]
 
-        val result = this.arguments?.getSerializable("icao") as Data
+        //get data
+        getData()
 
         binding.weatherDetailsConstraintHeader.backgroundTintList =
             (activity as Weather).getColorStateList(R.color.gray)
@@ -45,6 +53,14 @@ class WeatherDetails : Fragment() {
         binding.weatherDetailsTvStationName.text = result.station.name
         binding.weatherDetailsTvTemperature.text =
             (activity as Weather).getString(R.string.temperatureCelsius, result.temperature.celsius)
+
+        binding.weatherDetailsTvWindDegrees.text = (activity as Weather).getString(
+            R.string.windDegrees,
+            result.wind.degrees.toString().padStart(3, '0')
+        )
+        binding.weatherDetailsTvWindSpeed.text =
+            (activity as Weather).getString(R.string.windSpeed, result.wind.kts)
+        binding.weatherDetailsIvWindArrow.rotation = result.wind.degrees.toFloat() - 180f
     }
 
     override fun onDestroyView() {
@@ -53,8 +69,7 @@ class WeatherDetails : Fragment() {
     }
 
     private fun getData() {
-        val data = this.arguments
-        data!!.getString("hola")
+        result = this.arguments?.getSerializable("icao") as Data
     }
 
 
