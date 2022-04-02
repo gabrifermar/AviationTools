@@ -1,7 +1,7 @@
 /*
- * Created by gabrifermar on 2/4/22 19:22
+ * Created by gabrifermar on 2/4/22 19:28
  * Copyright Ⓒ 2022. All rights reserved
- * Last modified: 2/4/22 18:54
+ * Last modified: 2/4/22 19:26
  */
 
 package com.gabrifermar.aviationtools.view.fragments
