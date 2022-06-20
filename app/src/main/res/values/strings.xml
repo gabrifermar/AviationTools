@@ -1,7 +1,7 @@
 <!--
-  ~ Created by gabrifermar on 2/4/22 19:22
+  ~ Created by gabrifermar on 20/6/22 5:48
   ~ Copyright Ⓒ 2022. All rights reserved
-  ~ Last modified: 1/2/22 19:16
+  ~ Last modified: 20/6/22 5:41
   -->
 
 <resources>
@@ -9,9 +9,14 @@
     <string name="aviationtools">Aviation Tools</string>
     <string name="weather">Weather</string>
     <string name="search">Search</string>
+    <string name="add">Add</string>
 
-    <!--WeatherDetails-->
+    <!--Weather-->
+    <string name="icao">ICAO</string>
     <string name="temperatureCelsius">%d ºC</string>
+    <string name="wind">Wind</string>
     <string name="windSpeed">Speed: %d</string>
     <string name="windDegrees">Degrees: %s</string>
+<string name="wrongicao">Wrong ICAO</string>
+
 </resources>

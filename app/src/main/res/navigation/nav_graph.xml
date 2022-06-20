@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Created by gabrifermar on 2/4/22 19:22
+  ~ Created by gabrifermar on 20/6/22 5:48
   ~ Copyright Ⓒ 2022. All rights reserved
-  ~ Last modified: 2/4/22 18:45
+  ~ Last modified: 20/6/22 4:27
   -->
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,5 +29,8 @@
         <action
             android:id="@+id/action_weatherDetails_to_weatherReports"
             app:destination="@id/weatherReports"/>
+        <argument
+            android:name="meteo"
+            app:argType="com.gabrifermar.aviationtools.model.data.Data" />
     </fragment>
 </navigation>

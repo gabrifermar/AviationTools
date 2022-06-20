@@ -1,22 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Created by gabrifermar on 2/4/22 19:22
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by gabrifermar on 20/6/22 5:48
   ~ Copyright Ⓒ 2022. All rights reserved
-  ~ Last modified: 12/3/22 20:28
+  ~ Last modified: 20/6/22 5:16
   -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:overScrollMode="never"
-    android:scrollbars="none"
     tools:context=".view.fragments.WeatherReports">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
-        android:id="@+id/weatherreports_rv_reports"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/weather_txt_icao"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/input_rectangle"
+        android:gravity="center"
+        android:hint="@string/icao"
+        android:importantForAutofill="no"
+        android:inputType="textNoSuggestions"
+        android:maxLength="4"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</ScrollView>
+    <HorizontalScrollView
+        android:id="@+id/weather_hsv_chips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_txt_icao">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/weather_cg_icao"
+            android:layout_width="wrap_content"
+            app:singleSelection="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weather_rv_reports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_hsv_chips"
+        app:layout_constraintVertical_bias="0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

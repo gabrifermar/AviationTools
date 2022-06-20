@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by gabrifermar on 20/6/22 5:48
+  ~ Copyright Ⓒ 2022. All rights reserved
+  ~ Last modified: 2/4/22 19:55
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+<solid android:color="@color/teal_700"/>
+</shape>

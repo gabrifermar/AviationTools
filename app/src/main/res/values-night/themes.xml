@@ -1,7 +1,7 @@
 <!--
-  ~ Created by gabrifermar on 2/4/22 19:22
+  ~ Created by gabrifermar on 20/6/22 5:48
   ~ Copyright Ⓒ 2022. All rights reserved
-  ~ Last modified: 1/2/22 19:16
+  ~ Last modified: 3/4/22 12:50
   -->
 
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -18,5 +18,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Metarchip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="android:textSize">15sp</item>
+        <item name="chipStrokeColor">@color/black</item>
+        <item name="chipStrokeWidth">1dp</item>
     </style>
 </resources>
