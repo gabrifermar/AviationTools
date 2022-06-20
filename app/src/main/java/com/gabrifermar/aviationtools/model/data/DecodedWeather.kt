@@ -1,7 +1,7 @@
 /*
- * Created by gabrifermar on 2/4/22 19:22
+ * Created by gabrifermar on 20/6/22 5:48
  * Copyright Ⓒ 2022. All rights reserved
- * Last modified: 1/2/22 19:16
+ * Last modified: 20/6/22 4:57
  */
 
 package com.gabrifermar.aviationtools.model.data
@@ -19,8 +19,9 @@ data class DecodedWeather(
 @Keep
 data class Data(
     @SerializedName("barometer") var barometer: Barometer,
+    @SerializedName("ceiling") var ceiling: Ceiling?,
     @SerializedName("clouds") var clouds: List<Cloud>,
-    @SerializedName("conditions") var conditions: List<Conditions>,
+    @SerializedName("conditions") var conditions: List<Conditions>?,
     @SerializedName("dewpoint") var dewpoint: DewPoint,
     @SerializedName("elevation") var elevation: Elevation,
     @SerializedName("flight_category") var flightcategory: String,
@@ -41,10 +42,18 @@ data class Barometer(
 )
 
 @Keep
+data class Ceiling(
+    @SerializedName("code") var code:String,
+    @SerializedName("feet") var feet: Int,
+    @SerializedName("meters") var meters: Int
+)
+
+@Keep
 data class Cloud(
     @SerializedName("code") var code: String,
     @SerializedName("text") var text: String,
-    //@SerializedName("feet") var feet: Int
+    @SerializedName("feet") var feet: Int?,
+    @SerializedName("meters") var meters: Int?
 )
 
 @Keep

@@ -1,24 +1,23 @@
 /*
- * Created by gabrifermar on 2/4/22 19:22
+ * Created by gabrifermar on 20/6/22 5:48
  * Copyright Ⓒ 2022. All rights reserved
- * Last modified: 1/2/22 19:16
+ * Last modified: 20/6/22 5:28
  */
 
 package com.gabrifermar.aviationtools.view.fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.provider.ContactsContract
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.gabrifermar.aviationtools.R
 import com.gabrifermar.aviationtools.databinding.FragmentWeatherDetailsBinding
 import com.gabrifermar.aviationtools.model.data.Data
 import com.gabrifermar.aviationtools.view.Weather
 import com.gabrifermar.aviationtools.viewmodel.WeatherDetailsViewModel
-import java.io.Serializable
 
 class WeatherDetails : Fragment() {
 
@@ -30,6 +29,7 @@ class WeatherDetails : Fragment() {
     private lateinit var result: Data
     private var _binding: FragmentWeatherDetailsBinding? = null
     private val binding get() = _binding!!
+    private val args: WeatherDetailsArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,8 +47,8 @@ class WeatherDetails : Fragment() {
         //get data
         getData()
 
-        binding.weatherDetailsConstraintHeader.backgroundTintList =
-            (activity as Weather).getColorStateList(R.color.gray)
+        setupColor(result.flightcategory)
+
         binding.weatherDetailsTvIcao.text = result.icao
         binding.weatherDetailsTvStationName.text = result.station.name
         binding.weatherDetailsTvTemperature.text =
@@ -63,14 +63,24 @@ class WeatherDetails : Fragment() {
         binding.weatherDetailsIvWindArrow.rotation = result.wind.degrees.toFloat() - 180f
     }
 
+    private fun setupColor(code: String) {
+        if (code == "IFR" || code == "LIFR")
+            binding.weatherDetailsConstraintHeader.backgroundTintList =
+                (activity as Weather).getColorStateList(R.color.IFR)
+        else
+            binding.weatherDetailsConstraintHeader.backgroundTintList =
+                (activity as Weather).getColorStateList(R.color.VFR)
+
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     private fun getData() {
-        result = this.arguments?.getSerializable("icao") as Data
+        result = args.meteo
+        //result = this.arguments?.getSerializable("icao") as Data
     }
-
 
 }

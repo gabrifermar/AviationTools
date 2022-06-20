@@ -6,14 +6,15 @@
         <entry key="..\:/Escritorio/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Escritorio/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/activity_weather.xml" value="0.3625" />
         <entry key="..\:/Escritorio/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/menu.xml" value="0.3625" />
-        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/drawable/background.xml" value="0.37864583333333335" />
+        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/drawable/background.xml" value="0.2915" />
         <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/drawable/input_rectangle.xml" value="0.37864583333333335" />
         <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/drawable/prueaba.xml" value="0.165" />
+        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/drawable/roundbtn.xml" value="0.19" />
         <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/activity_menu.xml" value="0.3625" />
         <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/activity_weather.xml" value="0.2" />
-        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/fragment_weather_details.xml" value="0.3625" />
-        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/fragment_weather_reports.xml" value="0.2" />
-        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/item_weather_report.xml" value="0.3625" />
+        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/fragment_weather_details.xml" value="0.2761816496756256" />
+        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/fragment_weather_reports.xml" value="0.2761816496756256" />
+        <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/app/src/main/res/layout/item_weather_report.xml" value="0.75" />
         <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/aviationtools/src/main/res/layout/activity_main.xml" value="1.275" />
         <entry key="..\:/Gabriel/Gabriel/Aplicaciones/AviationTools/watch/src/main/res/layout/activity_main.xml" value="1.6878980891719746" />
       </map>

@@ -1,12 +1,13 @@
 /*
- * Created by gabrifermar on 2/4/22 19:22
+ * Created by gabrifermar on 20/6/22 5:48
  * Copyright Ⓒ 2022. All rights reserved
- * Last modified: 12/3/22 13:06
+ * Last modified: 20/6/22 4:23
  */
 
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
